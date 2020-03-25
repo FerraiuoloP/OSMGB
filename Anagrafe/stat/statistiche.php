@@ -241,7 +241,8 @@ STATISTICHE GLOBALI
 STATISTICHE PER ZONE
 </h2>
 </div>
-<form action="sessoMeF.php" method="post" >
+<div  position="absolute"  align="center">
+<form action="utility_stat.php" method="post" >
 SELEZIONARE LA ZONA:
 <select name="zona_richiesta">
 <option value="nord">nord</option>
@@ -249,18 +250,15 @@ SELEZIONARE LA ZONA:
 <option value="sud">sud</option>
 </br>
 </select>
+E LA RICHIESTA:
+<select name="valore">
+<option value="maschi">maschi e femmine</option>
+<option value="maggiorenni">maggiorenni</option>
+<option value="fertili">fertili</option>
+<option value="fasce">fasce</option>
 </br>
-maschi e femmine nella zona:
+</select>
 <input type='submit' name='invia'>
-</br>
-maggiorenni o minorenni nella zona:
-<input type='submit' name='invia' formaction='maggiorenni.php'>
-</br>
-donne fertili per zona:
-<input type='submit' name='invia' formaction='fertili.php'>
-</br>
-persone per fasce di età per zona:
-<input type='submit' name='invia' formaction='fasce.php'>
 </form>
 
 
@@ -314,15 +312,12 @@ echo"<input type='text' readonly value='";
 if(isset($numero_persone_annata))
 {echo $numero_persone_annata;}
 echo "'>  persone";
-echo"<br>
+echo"
 <input type='submit' name='invia'>";
-echo "</br><h3  style=' text-align: center;'>numero abitanti per casa : ".(ceil($persone_casa*10))/10;
-echo "</br></br>Età media : ".(ceil($etamedia*10))/10;
-echo "</br></br>Persone Morte Dall'inizio : ".$morti;
-echo "</h3>"
+echo "<br><h2>"."STATISTICHE PER MORTI<h2>";
 ?>
 </div>
-<div>
+<div position="absolute"  align="center">
 
 
 </form>
@@ -334,7 +329,8 @@ echo "</h3>"
 
 
 
-<form action="" method="post" >
+<form action="#indice1" method="post" >
+<section id="#indice1"></section>
 Nell'anno  
 <?php 
 //persone morte
@@ -352,7 +348,9 @@ if(isset($_POST['anno_persone2'])){
     
     
     }
+   
 ?>
+
 
 <select name="anno_persone2">
 
@@ -377,32 +375,16 @@ if(isset($numero_persone_annata2))
 {echo $numero_persone_annata2;}
 echo "'>  persone";
 echo "
-<input type='submit' name='invia'>;
+<input type='submit' value='mostra numero'>;
 <br>
 visualizza le persone
-<input type='submit' name='rappresenta' formaction='rappresenta.php'>";
-echo "</form>"
+<input type='submit'  value='mostra' formaction='rappresenta.php'>";
+echo "</form>";
+echo "</br><h3  style=' text-align: center;'>numero abitanti per casa : ".(ceil($persone_casa*10))/10;
+echo "</br></br>Età media : ".(ceil($etamedia*10))/10;
+echo "</br></br>Persone Morte Dall'inizio : ".$morti;
+echo "</h3>";
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

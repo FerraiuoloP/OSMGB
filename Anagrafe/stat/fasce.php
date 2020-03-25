@@ -17,7 +17,7 @@ require $util;
 
 <?php
 $oraoggi=date("Y/m/d");
-$zona=$_POST["zona_richiesta"];
+$zona=$_GET["zona_richiesta"];
 //media età delle persone 
 $query = "select avg(DATEDIFF('2020/2/29',data_nascita)) from persone 
 inner join pers_casa on pers_casa.ID_PERS=persone.ID 
@@ -162,7 +162,7 @@ echo "</br></br>Età media : ".(ceil($etamedia*10))/10;
 echo "</h2>";
 
 echo "</br>";
-echo "<form action='' method='post' >";
+echo "<form action='' method='GET' >";
 
 echo "<select name='zona_richiesta'>";
 echo "<option value='$zona'>$zona</option>";

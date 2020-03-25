@@ -18,7 +18,7 @@ require $util;
 <?php
 
 $oraoggi=date("Y/m/d");
-$zona=$_POST["zona_richiesta"];
+$zona=$_GET["zona_richiesta"];
 
 //persone in totale
 $query = "SELECT *  from persone 
@@ -50,7 +50,7 @@ echo $conn->error.".";
 if($result)
 {
   $numero_persone_f=$result->num_rows;
-  echo "donne".$numero_persone_f;
+ 
 }
 
 
@@ -74,8 +74,6 @@ $row = $result->fetch_array();
 //echo " donne in eta fertile ";
 $etafertile= $row ["count(persone.id)"];
 $nonfertile=$numero_persone_f-$etafertile;
-echo "fertili".$etafertile;
-echo "non fertili".$nonfertile;
 }
 
 
@@ -108,7 +106,7 @@ $etamedia=floor(($row ["avg(DATEDIFF('2020/2/29',data_nascita))"]/365));
 <div position="absolute"  align="center">
 <div id="chartContainer1"   style="width: 70%;  height: 500px;  display: inline-block;"></div> 
 <?php
-echo "<form action='' method='post' >";
+echo "<form action='' method='GET' >";
 
 echo "<select name='zona_richiesta'>";
 echo "<option value='$zona'>$zona</option>";

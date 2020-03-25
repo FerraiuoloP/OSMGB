@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <?php
 $config_path = __DIR__;

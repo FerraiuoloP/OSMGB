@@ -19,7 +19,7 @@ require $util;
 
 
 //persone in totale
-$zona=$_POST["zona_richiesta"];
+$zona=$_GET['zona_richiesta'];
 $query = "SELECT * from persone
 inner join pers_casa on pers_casa.ID_PERS=persone.ID 
 inner join casa on pers_casa.ID_casa=casa.ID
@@ -40,7 +40,7 @@ if($result)
 
 
 //persone di sesso femminile
-$zona =$_POST['zona_richiesta'];
+$zona =$_GET['zona_richiesta'];
 $query = "SELECT * from persone 
 inner join pers_casa on pers_casa.ID_PERS=persone.ID 
 inner join casa on pers_casa.ID_casa=casa.ID
@@ -119,7 +119,7 @@ $etamedia=floor(($row ["avg(DATEDIFF('2020/2/29',data_nascita))"]/365));
 echo "</h2>";
 echo "</br></br>Età media : ".(ceil($etamedia*10))/10;
 echo "</h2>";
-echo "<form action='' method='post' >";
+echo "<form action='' method='GET' >";
 echo "<select name='zona_richiesta'>";
 echo "<option value='$zona'>$zona</option>";
 echo "<option value='nord'>nord</option>";

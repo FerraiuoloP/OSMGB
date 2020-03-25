@@ -173,6 +173,23 @@ function setup() // invocata all'inizio di tutte le pagine, tranne login e logou
       }
     }
 }
+/*****************Paginazione*********************/
+function unsetPag($file){ 
+     switch($file){
+         case "gest_morance.php":
+             unset($_SESSION['pag_c']);
+             unset($_SESSION['pag_p']);
+             break;
+         case "gest_case.php":
+             unset($_SESSION['pag_m']);
+             unset($_SESSION['pag_p']);
+             break;
+         case "gest_persone.php":
+             unset($_SESSION['pag_m']);
+             unset($_SESSION['pag_c']);
+             break;
+     }
+ }
 
 
 /***************************** SLERT *****************************/
